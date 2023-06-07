@@ -1,0 +1,31 @@
+<?php
+return [
+
+    'students'=>'Number Of Students',
+    'teachers'=>'Number Of Teachers',
+    'parents'=>'Number Of Parents',
+    'sections'=>'Number Of Sections',
+    'Welcom'=>'Welcome',
+    'my_students'=>'My Students',
+    'my_classes'=>'My Sections',
+    'my_children'=>'My Children',
+    'Grade' => 'Grade',
+    'Class' => 'Classe',
+    'section' => 'section',
+    'cin' => 'CIN',
+    'gender' => 'Gender',
+    'male' => 'Male',
+    'female' => 'Female',
+    'Email' => 'Email',
+    'birth' => 'Birthday',
+    'teachers_n'=>'Teachers',
+    'students_n'=>'Students',
+    'name_parent' => 'Name parent',
+    'name_student' => 'Name Students',
+    'name_teacher'=>'Name Teacher',
+    'errorquestion'=>'Test canceled due to detection of system tampering',
+    'successexam'=>'Test completed successfully',
+    'Report'=>'Report',
+    'info'=>'Informations for Search',
+
+];
