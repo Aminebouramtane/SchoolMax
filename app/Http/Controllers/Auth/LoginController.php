@@ -98,6 +98,8 @@ class LoginController extends Controller
         $guardName = $this->chekGuard($request);
         if (Auth::guard($guardName)->attempt(['email' => $request->email, 'password' => $request->password])) {
             return $this->redirect($request);
+        }else{
+            return view('404');
         }
         // return $request;
 
