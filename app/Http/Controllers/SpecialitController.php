@@ -67,6 +67,7 @@ class SpecialitController extends Controller
             $Specalist->specialit_name_en = $request->specialit_name_en;
             $Specalist->specialit_name_ar = $request->specialit_name_ar;
             $Specalist->save();
+            toastr()->success('Data has been saved successfully!');
             return redirect()->route("specilits.index");
         } catch (\Exception $e) {
             return redirect()->back()->withErrors(["error" => $e->getMessage()]);
@@ -76,8 +77,15 @@ class SpecialitController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Specialit $specialit)
+    public function destroy($id)
     {
-        //
+        try {
+            $Specialist = Specialit::find($id);
+            $Specialist->delete();
+            toastr()->error('Data has been deleted successfully!');
+            return redirect()->route("specilits.index");
+        } catch (\Exception $e) {
+            return redirect()->back()->withErrors(["error" => $e->getMessage()]);
+        }
     }
 }
