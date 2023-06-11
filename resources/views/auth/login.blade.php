@@ -5,15 +5,15 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">
+                <div class="card-header bg-primary">
                     @if($type == 'student')
-                        <h3 style="font-family: 'Cairo', sans-serif" class="mb-30">Login Student</h3>
+                        <h3 style="font-family: 'Cairo', sans-serif" class="mb-30 text-light">Login Student</h3>
                     @elseif($type == 'parent')
-                        <h3 style="font-family: 'Cairo', sans-serif" class="mb-30">Login Parent</h3>
+                        <h3 style="font-family: 'Cairo', sans-serif" class="mb-30 text-light">Login Parent</h3>
                     @elseif($type == 'teacher')
-                        <h3 style="font-family: 'Cairo', sans-serif" class="mb-30">Login Teacher</h3>
+                        <h3 style="font-family: 'Cairo', sans-serif" class="mb-30 text-light">Login Teacher</h3>
                     @else
-                        <h3 style="font-family: 'Cairo', sans-serif" class="mb-30">Login Admin</h3>
+                        <h3 style="font-family: 'Cairo', sans-serif" class="mb-30 text-light">Login Admin</h3>
                     @endif
                 </div>
 
