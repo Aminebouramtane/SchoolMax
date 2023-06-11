@@ -29,7 +29,16 @@ class SpecialitController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try {
+            $Specialist = New Specialit;
+            $Specialist->specialit_name_en=$request->specialit_name_en;
+            $Specialist->specialit_name_ar=$request->specialit_name_ar;
+            $Specialist->save();
+            return redirect()->route("specilits.index");
+        } catch (\Exception $e) {
+            return redirect()->back()->withErrors(["error" => $e->getMessage()]);
+        }
+
     }
 
     /**
@@ -51,9 +60,10 @@ class SpecialitController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Specialit $specialit)
+    public function update(Request $request,$id)
     {
-        //
+
+
     }
 
     /**
