@@ -70,6 +70,7 @@ Route::group(
         Route::get('/Get_Sections/{id}',[QuizzeController::class,'Get_Sections']);
         Route::get('/Get_classroomsar/{id}',[QuizzeController::class,'getClassroomsar']);
         Route::get('/Get_Sectionsar/{id}',[QuizzeController::class,'Get_Sectionsar']);
+        Route::get('/Get_ssections/{id}', [QuizzeController::class,"Get_ssections"]);
     });
 
 });

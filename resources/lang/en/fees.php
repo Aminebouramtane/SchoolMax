@@ -7,7 +7,7 @@ return [
     'fees_en'=>'Name Fees En',
     'fees_ar'=>'Name Fees Ar',
     'list_fees'=>'List fees',
-    'add_fees'=>'Add fees',
+    'add_o_fees'=>'Add fees',
     'name_fees'=>'Fees',
     'amount'=>'Amount',
     'description'=>'Description',

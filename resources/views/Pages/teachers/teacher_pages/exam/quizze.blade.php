@@ -263,7 +263,7 @@
 
 														<div class="col">
 															<p class="mg-b-10">{{ trans('exams.Grade') }}</p><select name="grade_id" class="form-control select2" required="">
-																<option selected disabled label="................"></option>
+																<option selected disabled label=".....choose......"></option>
 																@foreach ($grades as $grade)
 																	<option value="{{$grade->id}}">{{App::getLocale()=='en'?$grade->grade_name_en:$grade->grade_name_ar}}</option>
 																@endforeach
@@ -273,13 +273,13 @@
 														<div class="col">
 															<p class="mg-b-10">{{ trans('exams.Class') }}</p>
 															<select class="form-control select2" required="" name="classe_id">
-																<option selected disabled label="................."></option>
+																<option selected disabled label=".....choose...."></option>
 
 															</select>
 														</div><!-- col-4 -->
 														<div class="col">
 															<p class="mg-b-10">{{ trans('exams.section') }}</p><select name="section_id" class="form-control select2" required="">
-																<option selected disabled label="................"></option>
+																<option selected disabled label="......choose...."></option>
 
 															</select>
 														</div><!-- col-4 -->
@@ -287,7 +287,7 @@
 													<div class="row">
 														<div class="col-12">
 															<p class="mg-b-10">{{ trans('subjects.name_subject') }}</p><select name="subject_id" class="form-control select2" required="">
-																<option selected disabled label="................"></option>
+																<option selected disabled label=".....choose....."></option>
 																@foreach ($Subjects as $subject)
 																	<option value="{{$subject->id}}">{{App::getLocale()=='en'?$subject->name_subject_en:$subject->name_subject_ar}}</option>
 																@endforeach
@@ -374,27 +374,28 @@
 
 
 <script>
-    $(document).ready(function () {
-        $('select[name="classe_id"]').on('change', function () {
-            var classe_id = $(this).val();
-            if (classe_id) {
-                $.ajax({
-                    url: "{{ URL::to('Get_Sections') }}/" + classe_id,
-                    type: "GET",
-                    dataType: "json",
-                    success: function (data) {
-                        $('select[name="section_id"]').empty();
-                        $.each(data, function (key, value) {
-                            $('select[name="section_id"]').append('<option value="' + key + '">' + value + '</option>');
-                        });
-                    },
-                });
-            }
-            else {
-                console.log('AJAX load did not work');
-            }
+        $(document).ready(function () {
+            $('select[name="classe_id"]').on('change', function () {
+                var classe_id = $(this).val();
+                if (classe_id) {
+                    $.ajax({
+                        url: "{{ URL::to('Get_ssections') }}/" + classe_id,
+                        type: "GET",
+                        dataType: "json",
+                        success: function (data) {
+                            $('select[name="classe_id"]').empty();
+                            $('select[name="classe_id"]').append('<option selected disabled >Choose...</option>');
+                            $.each(data, function (key, value) {
+                                $('select[name="section_id"]').append('<option value="' + key + '">' + value + '</option>');
+                            });
+                        },
+                    });
+                }
+                else {
+                    console.log('AJAX load did not work');
+                }
+            });
         });
-    });
 </script>
 
 @else

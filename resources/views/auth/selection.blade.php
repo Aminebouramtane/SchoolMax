@@ -37,18 +37,18 @@
                 <div class="row justify-content-center no-gutters vertical-align">
                     <div style="border-radius: 15px;" class="col-lg-8 col-md-8 bg-white">
                         <div class="login-fancy pb-40 clearfix">
-                            <h3 style="font-family: 'Cairo', sans-serif" class="mb-30">حدد طريقة الدخول :</h3>
+                            <h3 style="font-family: 'Cairo', sans-serif" class="mb-30">Specify the entry method</h3>
                             <div class="form-inline">
-                                <a class="btn btn-default col-lg-3" title="طالب" href="{{route('login.show','student')}}">
+                                <a class="btn btn-default col-lg-3" title="Student" href="{{route('login.show','student')}}">
                                     <img alt="user-img" width="100px;" src="{{URL::asset('assets/img/student.png')}}">
                                 </a>
-                                <a class="btn btn-default col-lg-3" title="ولي امر" href="{{route('login.show','parent')}}">
+                                <a class="btn btn-default col-lg-3" title="Parent" href="{{route('login.show','parent')}}">
                                     <img alt="user-img" width="100px;" src="{{URL::asset('assets/img/parent.png')}}">
                                 </a>
-                                <a class="btn btn-default col-lg-3" title="معلم" href="{{route('login.show','teacher')}}">
+                                <a class="btn btn-default col-lg-3" title="Teacher" href="{{route('login.show','teacher')}}">
                                     <img alt="user-img" width="100px;" src="{{URL::asset('assets/img/teacher.png')}}">
                                 </a>
-                                <a class="btn btn-default col-lg-3" title="ادمن" href="{{route('login.show','admin')}}">
+                                <a class="btn btn-default col-lg-3" title="Admin" href="{{route('login.show','admin')}}">
                                     <img alt="user-img" width="100px;" src="{{URL::asset('assets/img/admin.png')}}">
                                 </a>
                             </div>

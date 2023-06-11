@@ -144,8 +144,15 @@ class QuizzeController extends Controller
     public function repeat_quizze(Request $request)
     {
         Degree::where('student_id', $request->student_id)->where('exam_id', $request->exam_id)->delete();
-        toastr()->success('تم فتح الاختبار مرة اخرى للطالب');
+        toastr()->success('is open again');
         return redirect()->back();
     }
+
+    
+    public function Get_ssections($id){
+
+    $list_sections = Section::where("classe_id", $id)->pluck("section_name_en", "id");
+    return $list_sections;
+}
 
 }
