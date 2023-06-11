@@ -62,8 +62,15 @@ class SpecialitController extends Controller
      */
     public function update(Request $request,$id)
     {
-
-
+        try {
+            $Specalist=Specialit::find($id);
+            $Specalist->specialit_name_en = $request->specialit_name_en;
+            $Specalist->specialit_name_ar = $request->specialit_name_ar;
+            $Specalist->save();
+            return redirect()->route("specilits.index");
+        } catch (\Exception $e) {
+            return redirect()->back()->withErrors(["error" => $e->getMessage()]);
+        }
     }
 
     /**
