@@ -75,7 +75,7 @@ Route::group(
 	Route::get('/ssectionsar/{id}', [OnlineClasseController::class,"ssectionsar"]);
 
 	Route::get('/Get_classess/{id}', [SectionController::class,"Get_classess"]);
-	Route::get('/Get_ssections/{id}', [OnlineClasseController::class,"Get_ssections"]);
+	Route::get('/Get_ssections/{id}', [SectionController::class,"Get_ssections"]);
 	Route::get('/Get_classessar/{id}', [SectionController::class,"Get_classessar"]);
 	Route::get('/Get_ssectionsar/{id}', [SectionController::class,"Get_ssectionsar"]);
 	//Parents
