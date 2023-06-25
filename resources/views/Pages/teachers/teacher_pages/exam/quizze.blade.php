@@ -347,7 +347,7 @@
 <!--Internal  Datatable js -->
 <script src="{{URL::asset('assets/js/table-data.js')}}"></script>
 
-@if (App::getLocale()=="en")
+
 <script>
     $(document).ready(function () {
         $('select[name="grade_id"]').on('change', function () {
@@ -398,57 +398,6 @@
         });
 </script>
 
-@else
 
-<script>
-    $(document).ready(function () {
-        $('select[name="grade_id"]').on('change', function () {
-            var grade_id = $(this).val();
-            if (grade_id) {
-                $.ajax({
-                    url: "{{ URL::to('Get_classroomsar') }}/" + grade_id,
-                    type: "GET",
-                    dataType: "json",
-                    success: function (data) {
-                        $('select[name="classe_id"]').empty();
-                        $.each(data, function (key, value) {
-                            $('select[name="classe_id"]').append('<option value="' + key + '">' + value + '</option>');
-                        });
-                    },
-                });
-            }
-            else {
-                console.log('AJAX load did not work');
-            }
-        });
-    });
-</script>
-
-
-<script>
-    $(document).ready(function () {
-        $('select[name="classe_id"]').on('change', function () {
-            var classe_id = $(this).val();
-            if (classe_id) {
-                $.ajax({
-                    url: "{{ URL::to('Get_Sectionsar') }}/" + classe_id,
-                    type: "GET",
-                    dataType: "json",
-                    success: function (data) {
-                        $('select[name="section_id"]').empty();
-                        $.each(data, function (key, value) {
-                            $('select[name="section_id"]').append('<option value="' + key + '">' + value + '</option>');
-                        });
-                    },
-                });
-            }
-            else {
-                console.log('AJAX load did not work');
-            }
-        });
-    });
-</script>
-
-@endif
 
 @endsection

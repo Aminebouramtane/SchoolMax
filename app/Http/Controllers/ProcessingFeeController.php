@@ -34,7 +34,7 @@ class ProcessingFeeController extends Controller
         DB::beginTransaction();
 
         try {
-            // حفظ البيانات في جدول معالجة الرسوم
+
             $ProcessingFee = new Processing_fee();
             $ProcessingFee->date = date('Y-m-d');
             $ProcessingFee->student_id = $request->student_id;
@@ -43,7 +43,7 @@ class ProcessingFeeController extends Controller
             $ProcessingFee->save();
 
 
-            // حفظ البيانات في جدول حساب الطلاب
+
             $students_accounts = new Students_acound();
             $students_accounts->date = date('Y-m-d');
             $students_accounts->type = 'ProcessingFee';
@@ -90,7 +90,7 @@ class ProcessingFeeController extends Controller
         DB::beginTransaction();
 
         try {
-            // تعديل البيانات في جدول معالجة الرسوم
+
             $ProcessingFee = Processing_fee::findorfail($id);;
             $ProcessingFee->date = date('Y-m-d');
             $ProcessingFee->student_id = $request->student_id;
@@ -98,7 +98,7 @@ class ProcessingFeeController extends Controller
             $ProcessingFee->description = $request->description;
             $ProcessingFee->save();
 
-            // تعديل البيانات في جدول حساب الطلاب
+            
             $students_accounts = Students_acound::where('processing_id',$id)->first();;
             $students_accounts->date = date('Y-m-d');
             $students_accounts->type = 'ProcessingFee';

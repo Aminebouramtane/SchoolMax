@@ -97,6 +97,7 @@
                                         <th class="wd-15p border-bottom-0">{{ trans('dashboards.Grade') }}</th>
                                         <th class="wd-15p border-bottom-0">{{ trans('dashboards.Class') }}</th>
                                         <th class="wd-15p border-bottom-0">{{ trans('dashboards.section') }}</th>
+                                        <th class="wd-15p border-bottom-0">Attendances date</th>
                                         <th class="wd-30p border-bottom-0">{{ trans('attandences.Attendance') }}</th>
                                     </tr>
                                 </thead>
@@ -125,6 +126,7 @@
                                         <td>{{App::getLocale() == 'en'?$Student->Grades->grade_name_en:$Student->Grades->grade_name_ar}}</td>
                                         <td>{{App::getLocale() == 'en'?$Student->Classes->classe_name_en:$Student->Classes->classe_name_ar}}</td>
                                         <td>{{App::getLocale() == 'en'?$Student->Sections->section_name_en:$Student->Sections->section_name_ar}}</td>
+                                        <td>{{$Student->attendence_date}}</td>
                                         <td>
                                             @if($Student->attendence_status == 0)
                                                 <span class="btn-danger">{{ trans('attandences.Absent') }}</span>

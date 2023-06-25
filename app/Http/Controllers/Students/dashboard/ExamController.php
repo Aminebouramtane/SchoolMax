@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Students\dashboard;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Exam;
+use App\Models\Teacher;
 
 class ExamController extends Controller
 {
@@ -13,9 +14,10 @@ class ExamController extends Controller
      */
     public function index()
     {
-        $Exams = Exam::where('grade_id', auth()->user()->grade_id)
-            ->where('classe_id', auth()->user()->classe_id)
-            ->where('section_id', auth()->user()->section_id)
+        $teacher =Teacher::find(auth()->user()->id);
+        $Exams = Exam::where('grade_id', $teacher->grade_id)
+            ->where('classe_id', $teacher->classe_id)
+            ->where('section_id', $teacher->section_id)
             ->orderBy('id', 'DESC')
             ->get();
         return view('Pages.students.students_pages.exams.index', compact('Exams'));

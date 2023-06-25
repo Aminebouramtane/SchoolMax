@@ -36,7 +36,7 @@ class PaymentStudentController extends Controller
 
         try {
 
-            // حفظ البيانات في جدول سندات الصرف
+
             $payment_students = new Payment_student();
             $payment_students->date = date('Y-m-d');
             $payment_students->student_id = $request->student_id;
@@ -45,7 +45,7 @@ class PaymentStudentController extends Controller
             $payment_students->save();
 
 
-            // حفظ البيانات في جدول الصندوق
+
             $fund_accounts = new Fund_account();
             $fund_accounts->date = date('Y-m-d');
             $fund_accounts->payment_id = $payment_students->id;
@@ -55,7 +55,7 @@ class PaymentStudentController extends Controller
             $fund_accounts->save();
 
 
-            // حفظ البيانات في جدول حساب الطلاب
+
             $students_accounts = new Students_acound();
             $students_accounts->date = date('Y-m-d');
             $students_accounts->type = 'payment';
@@ -102,7 +102,7 @@ class PaymentStudentController extends Controller
 
         try {
 
-            // تعديل البيانات في جدول سندات الصرف
+
             $payment_students = Payment_student::findorfail($id);
             $payment_students->date = date('Y-m-d');
             $payment_students->student_id = $request->student_id;
@@ -111,7 +111,7 @@ class PaymentStudentController extends Controller
             $payment_students->save();
 
 
-            // حفظ البيانات في جدول الصندوق
+
             $fund_accounts = Fund_account::where('payment_id',$id)->first();
             $fund_accounts->date = date('Y-m-d');
             $fund_accounts->payment_id = $payment_students->id;
@@ -121,7 +121,7 @@ class PaymentStudentController extends Controller
             $fund_accounts->save();
 
 
-            // حفظ البيانات في جدول حساب الطلاب
+            
             $students_accounts = Students_acound::where('payment_id',$id)->first();
             $students_accounts->date = date('Y-m-d');
             $students_accounts->type = 'payment';
