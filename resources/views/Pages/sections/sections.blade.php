@@ -164,7 +164,7 @@
                                                                                <div class="col">
                                                                                    <label for="inputName"
                                                                                           class="control-label">{{ trans('sections.Name_Grade') }}</label>
-                                                                                   <select name="Grade_id"
+                                                                                   <select name="grade_id"
                                                                                            class="custom-select"
                                                                                            onclick="console.log($(this).val())">
                                                                                        <option
@@ -184,7 +184,7 @@
                                                                                <div class="col">
                                                                                    <label for="inputName"
                                                                                           class="control-label">{{ trans('sections.Name_Class') }} :</label>
-                                                                                   <select name="Class_id"
+                                                                                   <select name="classe_id"
                                                                                            class="custom-select">
                                                                                        <option
                                                                                            value="{{ $grade->Classes->id }}">
@@ -329,7 +329,7 @@
                                         <div class="col">
                                             <label for="inputName"
                                                    class="control-label">{{ trans('sections.Name_Grade') }}</label>
-                                            <select name="Grade_id" class="custom-select"
+                                            <select name="grade_id" class="custom-select"
                                                     onchange="console.log($(this).val())">
                                                 <!--placeholder-->
                                                 <option value="" selected
@@ -345,7 +345,7 @@
                                         <div class="col">
                                             <label for="inputName"
                                                    class="control-label">{{ trans('sections.Name_Class') }}</label>
-                                            <select name="Class_id" class="custom-select">
+                                            <select name="classe_id" class="custom-select">
 
                                             </select>
                                         </div><br>
@@ -409,59 +409,6 @@
 <script src="{{URL::asset('assets/plugins/accordion/accordion.min.js')}}"></script>
 <script src="{{URL::asset('assets/js/accordion.js')}}"></script>
 
-
-@if (App::getLocale() == 'en')
-<script>
-    $(document).ready(function () {
-        $('select[name="Grade_id"]').on('change', function () {
-            var Grade_id = $(this).val();
-            if (Grade_id) {
-                $.ajax({
-                    url: "{{ URL::to('classess') }}/" + Grade_id,
-                    type: "GET",
-                    dataType: "json",
-                    success: function (data) {
-                        $('select[name="Class_id"]').empty();
-                        $.each(data, function (key, value) {
-                            $('select[name="Class_id"]').append('<option value="' + key + '">' + value  + '</option>');
-                            console.log(key,value);
-                        });
-
-                    },
-                });
-
-            } else {
-                console.log('AJAX load did not work');
-            }
-        });
-    });
-</script>
-@else
-<script>
-    $(document).ready(function () {
-        $('select[name="Grade_id"]').on('change', function () {
-            var Grade_id = $(this).val();
-            if (Grade_id) {
-                $.ajax({
-                    url: "{{ URL::to('classessar') }}/" + Grade_id,
-                    type: "GET",
-                    dataType: "json",
-                    success: function (data) {
-                        $('select[name="Class_id"]').empty();
-                        $.each(data, function (key, value) {
-                            $('select[name="Class_id"]').append('<option value="' + key + '">' + value  + '</option>');
-                            console.log(key,value);
-                        });
-
-                    },
-                });
-
-            } else {
-                console.log('AJAX load did not work');
-            }
-        });
-    });
-</script>
-@endif
+@include('layouts.ajax')
 
 @endsection

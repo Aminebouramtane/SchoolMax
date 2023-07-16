@@ -37,8 +37,8 @@ class SubjectController extends Controller
             $subjects = new Subject;
             $subjects->name_subject_en = $request->subject_name_en;
             $subjects->name_subject_ar = $request->subject_name_ar;
-            $subjects->grade_id = $request->Grade_id;
-            $subjects->classe_id = $request->Class_id;
+            $subjects->grade_id = $request->grade_id;
+            $subjects->classe_id = $request->classe_id;
             $subjects->teacher_id = $request->teacher_id;
             $subjects->save();
             toastr()->success(trans('messages.success'));
@@ -74,8 +74,8 @@ class SubjectController extends Controller
             $subjects =  Subject::findorfail($id);
             $subjects->name_subject_en = $request->subject_name_en;
             $subjects->name_subject_ar = $request->subject_name_ar;
-            $subjects->grade_id = $request->Grade_id;
-            $subjects->classe_id = $request->Class_id;
+            $subjects->grade_id = $request->grade_id;
+            $subjects->classe_id = $request->classe_id;
             $subjects->teacher_id = $request->teacher_id;
             $subjects->save();
             toastr()->success(trans('messages.Update'));

@@ -60,7 +60,6 @@
 									<table class="table text-md-nowrap" id="example1">
 										<thead>
 											<tr>
-
 												<th class="wd-15p border-bottom-0">#</th>
 												<th class="wd-20p border-bottom-0">{{ trans('classes.Name') }}</th>
 												<th class="wd-20p border-bottom-0">{{ trans('classes.Name_Grade') }}</th>
@@ -407,5 +406,6 @@
         });
     });
 </script>
+
 
 @endsection

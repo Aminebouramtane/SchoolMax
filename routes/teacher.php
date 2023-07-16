@@ -66,11 +66,11 @@ Route::group(
         Route::put('online/{id}',[OnlineController::class,'update'])->name('online.update');
         Route::delete('online/{id}',[OnlineController::class,'destroy'])->name('online.destroy');
 
-        Route::get('/Get_classrooms/{id}',[QuizzeController::class,'getClassrooms']);
-        Route::get('/Get_Sections/{id}',[QuizzeController::class,'Get_Sections']);
-        Route::get('/Get_classroomsar/{id}',[QuizzeController::class,'getClassroomsar']);
-        Route::get('/Get_Sectionsar/{id}',[QuizzeController::class,'Get_Sectionsar']);
-        Route::get('/Get_ssections/{id}', [QuizzeController::class,"Get_ssections"]);
+        // Route::get('/Get_classrooms/{id}',[QuizzeController::class,'getClassrooms']);
+        // Route::get('/Get_Sections/{id}',[QuizzeController::class,'Get_Sections']);
+        // Route::get('/Get_classroomsar/{id}',[QuizzeController::class,'getClassroomsar']);
+        // Route::get('/Get_Sectionsar/{id}',[QuizzeController::class,'Get_Sectionsar']);
+        // Route::get('/Get_ssections/{id}', [QuizzeController::class,"Get_ssections"]);
     });
 
 });

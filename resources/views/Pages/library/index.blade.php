@@ -258,7 +258,7 @@
                                         <div class="col">
                                             <p class="mg-b-10">{{ trans('promotion.Grade') }}</p><select name="grade_id"
                                                 class="form-control select2" required="">
-                                                <option selected disabled label=".............."></option>
+                                                <option selected disabled label="Choose..."></option>
                                                 @foreach ($grades as $grade)
                                                 <option value="{{$grade->id}}">{{App::getLocale()=='en'?$grade->grade_name_en:$grade->grade_name_ar}}</option>
                                                 @endforeach
@@ -274,7 +274,6 @@
                                         <div class="col">
                                             <p class="mg-b-10">{{ trans('promotion.section') }}</p><select name="section_id"
                                                 class="form-control select2" required="">
-                                                <option selected disabled label="..........."></option>
 
                                             </select>
                                         </div><!-- col-4 -->
@@ -343,104 +342,6 @@
 <!--Internal  Datatable js -->
 <script src="{{URL::asset('assets/js/table-data.js')}}"></script>
 
-@if (App::getLocale() == 'en')
-    <script>
-        $(document).ready(function () {
-            $('select[name="grade_id"]').on('change', function () {
-                var grade_id = $(this).val();
-                if (grade_id) {
-                    $.ajax({
-                        url: "{{ URL::to('classess') }}/" + grade_id,
-                        type: "GET",
-                        dataType: "json",
-                        success: function (data) {
-                            $('select[name="classe_id"]').empty();
-                            $('select[name="classe_id"]').append('<option selected disabled >Choose...</option>');
-                            $.each(data, function (key, value) {
-                                $('select[name="classe_id"]').append('<option value="' + key + '">' + value + '</option>');
-                            });
-                        },
-                    });
-                }
-                else {
-                    console.log('AJAX load did not work');
-                }
-            });
-        });
-    </script>
-    <script>
-        $(document).ready(function () {
-            $('select[name="classe_id"]').on('change', function () {
-                var classe_id = $(this).val();
-                if (classe_id) {
-                    $.ajax({
-                        url: "{{ URL::to('ssections') }}/" + classe_id,
-                        type: "GET",
-                        dataType: "json",
-                        success: function (data) {
-                            $('select[name="section_id"]').empty();
-                            $('select[name="section_id"]').append('<option selected disabled >Choose...</option>');
-                            $.each(data, function (key, value) {
-                                $('select[name="section_id"]').append('<option value="' + key + '">' + value + '</option>');
-                            });
-                        },
-                    });
-                }
-                else {
-                    console.log('AJAX load did not work');
-                }
-            });
-        });
-    </script>
-@else
-<script>
-    $(document).ready(function () {
-        $('select[name="grade_id"]').on('change', function () {
-            var grade_id = $(this).val();
-            if (grade_id) {
-                $.ajax({
-                    url: "{{ URL::to('classessar') }}/" + grade_id,
-                    type: "GET",
-                    dataType: "json",
-                    success: function (data) {
-                        $('select[name="classe_id"]').empty();
-                        $('select[name="classe_id"]').append('<option selected disabled >تحديد</option>');
-                        $.each(data, function (key, value) {
-                            $('select[name="classe_id"]').append('<option value="' + key + '">' + value + '</option>');
-                        });
-                    },
-                });
-            }
-            else {
-                console.log('AJAX load did not work');
-            }
-        });
-    });
-</script>
-    <script>
-        $(document).ready(function () {
-            $('select[name="classe_id"]').on('change', function () {
-                var classe_id = $(this).val();
-                if (classe_id) {
-                    $.ajax({
-                        url: "{{ URL::to('ssectionsar') }}/" + classe_id,
-                        type: "GET",
-                        dataType: "json",
-                        success: function (data) {
-                            $('select[name="section_id"]').empty();
-                            $('select[name="section_id"]').append('<option selected disabled >تحديد</option>');
-                            $.each(data, function (key, value) {
-                                $('select[name="section_id"]').append('<option value="' + key + '">' + value + '</option>');
-                            });
-                        },
-                    });
-                }
-                else {
-                    console.log('AJAX load did not work');
-                }
-            });
-        });
-    </script>
-@endif
+@include('layouts.ajax')
 
 @endsection

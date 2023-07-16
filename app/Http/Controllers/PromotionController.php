@@ -69,4 +69,6 @@ class PromotionController extends Controller
     {
         return $this->promotion->rollback($request,$id);
     }
+
+
 }

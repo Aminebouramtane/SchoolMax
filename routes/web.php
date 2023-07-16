@@ -27,17 +27,7 @@ use App\Http\Livewire\Calendar;
 
 
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
-//Auth::routes();
+
 Route::get('/',[HomeController::class,'index'])->name('selection');
 Route::group(['namespace' => 'Auth'], function () {
 
@@ -69,15 +59,7 @@ Route::group(
 	//sections
 	Route::resource('sections', SectionController::class);
 
-	Route::get('/classess/{id}', [SectionController::class,"classess"]);
-	Route::get('/ssections/{id}', [OnlineClasseController::class,"ssections"]);
-	Route::get('/classessar/{id}', [SectionController::class,"classessar"]);
-	Route::get('/ssectionsar/{id}', [OnlineClasseController::class,"ssectionsar"]);
 
-	Route::get('/Get_classess/{id}', [SectionController::class,"Get_classess"]);
-	Route::get('/Get_ssections/{id}', [SectionController::class,"Get_ssections"]);
-	Route::get('/Get_classessar/{id}', [SectionController::class,"Get_classessar"]);
-	Route::get('/Get_ssectionsar/{id}', [SectionController::class,"Get_ssectionsar"]);
 	//Parents
 	Route::resource('addparents', AddParentController::class);
 	//Teachers
@@ -86,10 +68,6 @@ Route::group(
 	Route::resource('specilits',SpecialitController::class);
 	//Students
 	Route::resource('students', StudentController::class);
-	Route::get('/Get_classrooms/{id}', [StudentController::class,'Get_classrooms']);
-	Route::get('/Get_Sections/{id}', [StudentController::class,'Get_Sections']);
-	// Route::get('/Get_classrooms/{id}', 'StudentController@Get_classrooms');
-    // Route::get('/Get_Sections/{id}', 'StudentController@Get_Sections');
 
 			//Student----->Promotion :
 			Route::resource('promotions', PromotionController::class);
@@ -127,7 +105,15 @@ Route::group(
 
 });
 
+Route::get('/new_classes/{id}', [SectionController::class,"new_classes"]);
+Route::get('/new_sections/{id}', [SectionController::class,"new_sections"]);
+Route::get('/new_classes_ar/{id}', [SectionController::class,"new_classes_ar"]);
+Route::get('/new_sections_ar/{id}', [SectionController::class,"new_sections_ar"]);
 
+Route::get('/Get_classes/{id}', [SectionController::class,"Get_classes"]);
+Route::get('/Get_sections/{id}', [SectionController::class,"Get_sections"]);
+Route::get('/Get_classes_ar/{id}', [SectionController::class,"Get_classes_ar"]);
+Route::get('/Get_sections_ar/{id}', [SectionController::class,"Get_sections_ar"]);
 
 
 

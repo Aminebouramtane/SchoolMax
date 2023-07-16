@@ -156,7 +156,7 @@
                                                                                 <div class="col">
                                                                                     <label for="inputName"
                                                                                         class="control-label">{{ trans('subjects.Grade') }}</label>
-                                                                                    <select name="Grade_id" class="custom-select"
+                                                                                    <select name="grade_id" class="custom-select"
                                                                                             onchange="console.log($(this).val())">
                                                                                         <!--placeholder-->
                                                                                         <option value="{{$sbj->Grades->id}}" selected >{{ App::getLocale() == 'en'?$sbj->Grades->grade_name_en:$sbj->Grades->grade_name_ar }}</option>
@@ -169,7 +169,7 @@
                                                                                 <div class="col">
                                                                                     <label for="inputName"
                                                                                         class="control-label">{{ trans('subjects.Class') }}</label>
-                                                                                    <select name="Class_id" class="custom-select">
+                                                                                    <select name="classe_id" class="custom-select">
                                                                                         <option value="{{$sbj->Classes->id}}" selected >{{ App::getLocale() == 'en'?$sbj->Classes->classe_name_en:$sbj->Classes->classe_name_ar }}</option>
 
 
@@ -258,11 +258,11 @@
 														<div class="col">
 															<label for="inputName"
 																   class="control-label">{{ trans('subjects.Grade') }}</label>
-															<select name="Grade_id" class="custom-select"
+															<select name="grade_id" class="custom-select"
 																	onchange="console.log($(this).val())">
 																<!--placeholder-->
 																<option value="" selected
-																		disabled>......
+																		disabled>Choose...
 																</option>
 																@foreach ($Grade_list as $list_Grade)
 																<option value="{{ $list_Grade->id }}"> {{ App::getLocale() == 'en'?$list_Grade->grade_name_en:$list_Grade->grade_name_ar }}
@@ -273,14 +273,14 @@
 														<div class="col">
 															<label for="inputName"
 																   class="control-label">{{ trans('subjects.Class') }}</label>
-															<select name="Class_id" class="custom-select">
+															<select name="classe_id" class="custom-select">
 
 															</select>
 														</div>
 														<div class="col">
 															<label for="inputName" class="control-label">{{ trans('subjects.Name_Teacher') }}</label>
                                                             <select class="custom-select my-1 mr-sm-2" name="teacher_id">
-                                                                <option selected disabled>........</option>
+                                                                <option selected disabled>Choose...</option>
                                                                 @foreach($Teachers as $teacher)
                                                                     <option value="{{$teacher->id}}">{{App::getLocale() == 'en'?$teacher->teacher_name_en:$teacher->teacher_name_ar}}</option>
                                                                 @endforeach
@@ -342,59 +342,6 @@
 
 {{-- modal --}}
 
-
-@if (App::getLocale() == 'en')
-<script>
-    $(document).ready(function () {
-        $('select[name="Grade_id"]').on('change', function () {
-            var Grade_id = $(this).val();
-            if (Grade_id) {
-                $.ajax({
-                    url: "{{ URL::to('classess') }}/" + Grade_id,
-                    type: "GET",
-                    dataType: "json",
-                    success: function (data) {
-                        $('select[name="Class_id"]').empty();
-                        $.each(data, function (key, value) {
-                            $('select[name="Class_id"]').append('<option value="' + key + '">' + value  + '</option>');
-                            console.log(key,value);
-                        });
-
-                    },
-                });
-
-            } else {
-                console.log('AJAX load did not work');
-            }
-        });
-    });
-</script>
-@else
-<script>
-    $(document).ready(function () {
-        $('select[name="Grade_id"]').on('change', function () {
-            var Grade_id = $(this).val();
-            if (Grade_id) {
-                $.ajax({
-                    url: "{{ URL::to('classessar') }}/" + Grade_id,
-                    type: "GET",
-                    dataType: "json",
-                    success: function (data) {
-                        $('select[name="Class_id"]').empty();
-                        $.each(data, function (key, value) {
-                            $('select[name="Class_id"]').append('<option value="' + key + '">' + value  + '</option>');
-                            console.log(key,value);
-                        });
-
-                    },
-                });
-
-            } else {
-                console.log('AJAX load did not work');
-            }
-        });
-    });
-</script>
-@endif
+@include('layouts.ajax')
 
 @endsection

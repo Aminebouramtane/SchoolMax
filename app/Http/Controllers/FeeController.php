@@ -37,8 +37,8 @@ class FeeController extends Controller
                 $fees->fees_name_en=$request->fees_name_en;
                 $fees->fees_name_ar=$request->fees_name_ar;
                 $fees->amount=$request->amount;
-                $fees->grade_id=$request->Grade_id;
-                $fees->classe_id=$request->Class_id;
+                $fees->grade_id=$request->grade_id;
+                $fees->classe_id=$request->classe_id;
                 $fees->season=$request->season;
                 $fees->note=$request->note;
                 $fees->save();
@@ -75,8 +75,8 @@ class FeeController extends Controller
             $fee->fees_name_en=$request->fees_name_en;
             $fee->fees_name_ar=$request->fees_name_ar;
             $fee->amount=$request->amount;
-            $fee->grade_id=$request->Grade_id;
-            $fee->classe_id=$request->Class_id;
+            $fee->grade_id=$request->grade_id;
+            $fee->classe_id=$request->classe_id;
             $fee->season=$request->season;
             $fee->note=$request->note;
             $fee->save();

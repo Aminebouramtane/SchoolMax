@@ -116,39 +116,61 @@ class SectionController extends Controller
             return redirect()->back()->withErrors(["error" => $e->getMessage()]);
         }
     }
-    public function classess($id)
+
+
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////
+    public function Get_classes($id)
     {
-            $list_classes = Classe::where("grade_id", $id)->pluck("classe_name_en","id");
-            return $list_classes;
-    }
-    public function classessar($id)
-    {
-            $list_classes = Classe::where("grade_id", $id)->pluck("classe_name_ar","id");
-            return $list_classes;
-    }
-
-
-    public function Get_classess($id){
-
         $list_classes = Classe::where("grade_id", $id)->pluck("classe_name_en", "id");
         return $list_classes;
     }
-    public function Get_classessar($id){
 
+    public function Get_sections($id)
+    {
+        $list_sections = Section::where("classe_id", $id)->pluck("section_name_en", "id");
+        return $list_sections;
+    }
+
+////////////////////////////////////////////////////////////////////////////////////////////
+    public function Get_classes_ar($id){
         $list_classes = Classe::where("grade_id", $id)->pluck("classe_name_ar", "id");
         return $list_classes;
     }
 
-    //Get Sections
-    public function Get_ssections($id){
-
-        $list_sections = Section::where("classe_id", $id)->pluck("section_name_en", "id");
-        return $list_sections;
-    }
-    public function Get_ssectionsar($id){
-
+    public function Get_sections_ar($id){
         $list_sections = Section::where("classe_id", $id)->pluck("section_name_ar", "id");
         return $list_sections;
     }
 
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////
+public function new_classes($id)
+    {
+        $list_classes = Classe::where("grade_id", $id)->pluck("classe_name_en", "id");
+        return $list_classes;
+    }
+
+    public function new_sections($id)
+    {
+        $list_sections = Section::where("classe_id", $id)->pluck("section_name_en", "id");
+        return $list_sections;
+    }
+
+////////////////////////////////////////////////////////////////////////////////////////////
+    public function new_classes_ar($id){
+        $list_classes = Classe::where("grade_id", $id)->pluck("classe_name_ar", "id");
+        return $list_classes;
+    }
+
+    public function new_sections_ar($id){
+        $list_sections = Section::where("classe_id", $id)->pluck("section_name_ar", "id");
+        return $list_sections;
+    }
 }
