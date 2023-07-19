@@ -14,7 +14,7 @@ class OnlineController extends Controller
      */
     public function index()
     {
-        $student = Student::findOrFail(auth()->user()->id);
+        $student =Student::where("id",auth()->user()->id)->first();
         $online_classes = Online_classe::where('grade_id', $student->grade_id)
         ->where('classe_id', $student->classe_id)
         ->where('section_id', $student->section_id)

@@ -39,8 +39,8 @@ class SectionController extends Controller
                 $Section=new Section ;
                 $Section->section_name_en=$request->section_name_en;
                 $Section->section_name_ar=$request->section_name_ar;
-                $Section->grade_id=$request->Grade_id;
-                $Section->classe_id=$request->Class_id;
+                $Section->grade_id=$request->grade_id;
+                $Section->classe_id=$request->classe_id;
                 if ($request->has('active')) {
                     $Section->active=1;
                 } else {
@@ -83,8 +83,8 @@ class SectionController extends Controller
         try {
             $section->section_name_en = $request->section_name_en;
             $section->section_name_ar = $request->section_name_ar;
-            $section->grade_id=$request->Grade_id;
-            $section->classe_id=$request->Class_id;
+            $section->grade_id=$request->grade_id;
+            $section->classe_id=$request->classe_id;
             if ($request->has('active')) {
                 $section->active=1;
             } else {

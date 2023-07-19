@@ -28,7 +28,8 @@ use App\Http\Livewire\Calendar;
 
 
 
-Route::get('/',[HomeController::class,'index'])->name('selection');
+Route::get('/',[HomeController::class,'index'])->middleware('guest')->name('selection');
+
 Route::group(['namespace' => 'Auth'], function () {
 
 Route::get('/login/{type}',[LoginController::class,'loginForm'])->middleware('guest')->name('login.show');

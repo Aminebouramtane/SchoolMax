@@ -1,81 +1,89 @@
 <!DOCTYPE html>
-<html lang="en" dir="rtl">
+<html>
 
 <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="keywords" content="HTML5 Template" />
-    <meta name="description" content="Webmin - Bootstrap 4 & Angular 5 Admin Dashboard Template" />
-    <meta name="author" content="potenzaglobalsolutions.com" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <!-- Favicon -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="{{URL::asset('assets/css/cardstyle.css')}}" />
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+        crossorigin="anonymous">
     <link rel="icon" href="{{URL::asset('assets/img/graduation-cap.png')}}" type="image/x-icon"/>
     <title>SchoolMax</title>
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="images/favicon.ico" />
-
-    <!-- Font -->
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css?family=Poppins:200,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900">
-
-    <!-- css -->
-    <link href="{{ URL::asset('assets/css/rtl.css') }}" rel="stylesheet">
-
-
-
-
+    
 </head>
 
 <body>
-
-    <div class="wrapper">
-
-        <section class="height-100vh d-flex align-items-center page-section-ptb login"
-                 style="background-image: url('{{ asset('assets/img/sativa.png')}}');">
-            <div class="container">
-                <div class="row justify-content-center no-gutters vertical-align">
-                    <div style="border-radius: 15px;" class="col-lg-8 col-md-8 bg-white">
-                        <div class="login-fancy pb-40 clearfix">
-                            <h3 style="font-family: 'Cairo', sans-serif" class="mb-30">Specify the entry method</h3>
-                            <div class="form-inline">
-                                <a class="btn btn-default col-lg-3" title="Student" href="{{route('login.show','student')}}">
-                                    <img alt="user-img" width="100px;" src="{{URL::asset('assets/img/student.png')}}">
-                                </a>
-                                <a class="btn btn-default col-lg-3" title="Parent" href="{{route('login.show','parent')}}">
-                                    <img alt="user-img" width="100px;" src="{{URL::asset('assets/img/parent.png')}}">
-                                </a>
-                                <a class="btn btn-default col-lg-3" title="Teacher" href="{{route('login.show','teacher')}}">
-                                    <img alt="user-img" width="100px;" src="{{URL::asset('assets/img/teacher.png')}}">
-                                </a>
-                                <a class="btn btn-default col-lg-3" title="Admin" href="{{route('login.show','admin')}}">
-                                    <img alt="user-img" width="100px;" src="{{URL::asset('assets/img/admin.png')}}">
-                                </a>
-                            </div>
-
-                        </div>
+    <div class="container">
+        <div class="card">
+            <div class="face face1">
+                <div class="content">
+                    <div class="icon">
+                        <i class="fa fa-user-secret" aria-hidden="true"></i> 
                     </div>
                 </div>
             </div>
-        </section>
-        <!--=================================
- login-->
+            <div class="face face2">
+                <div class="content">
+                        <a class="btn btn-default col-lg-3" title="Admin" href="{{route('login.show','admin')}}">
+                            LOGIN AS ADMIN
+                        </a>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="face face1">
+                <div class="content">
+                    <div class="icon">
+                        <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="face face2">
+                <div class="content">
+                    <a class="btn btn-default col-lg-3" title="Student" href="{{route('login.show','student')}}">
+                        LOGIN AS STUDENT
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="face face1">
+                <div class="content">
+                    <div class="icon">
+                        <i class="fa fa-user" aria-hidden="true"></i> 
+                    </div>
+                </div>
+            </div>
+            <div class="face face2">
+                <div class="content">
+                    <a class="btn btn-default col-lg-3" title="Teacher" href="{{route('login.show','teacher')}}">
+                        LOGIN AS TEACHER
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="face face1">
+                <div class="content">
+                    <div class="icon">
+                        <i class="fa fa-users" aria-hidden="true"></i> 
+                    </div>
+                </div>
+            </div>
+            <div class="face face2">
+                <div class="content">
+                    <a class="btn btn-default col-lg-3" title="Parent" href="{{route('login.show','parent')}}">
+                        LOGIN AS PARENT
+                    </a>
+                </div>
+            </div>
+        </div>
 
     </div>
-    <!-- jquery -->
-    <script src="{{ URL::asset('assets/js/jquery-3.3.1.min.js') }}"></script>
-    <!-- plugins-jquery -->
-    <script src="{{ URL::asset('assets/js/plugins-jquery.js') }}"></script>
-    <!-- plugin_path -->
-    <script>
-        var plugin_path = 'js/';
-    </script>
-
-    <!-- toastr -->
-    @yield('js')
-    <!-- custom -->
-    <script src="{{ URL::asset('assets/js/custom.js') }}"></script>
-
 </body>
 
 </html>
