@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Student;
 use Faker\Factory as Faker;
@@ -33,7 +32,6 @@ class StudentSeeder extends Seeder
                 'section_id' => $faker->numberBetween(1, 3),
                 'parent_id' => $faker->numberBetween(1, 5),
                 'season' => $faker->randomElement(['2022-2023', '2023-2024']),
-                'photo' => null,
             ]);
         }
     }

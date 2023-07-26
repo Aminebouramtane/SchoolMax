@@ -16,7 +16,7 @@
 		<div class="main-error-wrapper  page page-h ">
 			<img src="{{URL::asset('assets/img/media/404.png')}}" class="error-page" alt="error">
 			<h2>Oopps. The page you were looking for doesn't exist.</h2>
-			<h6>You tried to login with an incorrect email or password !!</h6><a class="btn btn-outline-danger" href="{{route('selection')}}">Back to Home</a>
+			<h6>Because you tried to login with an incorrect email or password !!</h6><a class="btn btn-outline-danger" href="{{route('selection')}}">Back to Home</a>
 		</div>
 		<!-- /Main-error-wrapper -->
 @endsection
